@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Signup Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      width: 320px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    .error {
+      color: red;
+      font-size: 12px;
+    }
+
+    .success {
+      color: green;
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Signup</h2>
+  <form id="signupForm">
+    <input type="email" id="email" placeholder="Enter Email">
+    <div id="emailError" class="error"></div>
+
+    <input type="password" id="password" placeholder="Enter Password">
+    <div id="passwordError" class="error"></div>
+
+    <input type="password" id="confirmPassword" placeholder="Confirm Password">
+    <div id="confirmError" class="error"></div>
+
+    <button type="submit">Sign Up</button>
+  </form>
+
+  <div id="successMsg" class="success"></div>
+</div>
+
+<script>
+  const form = document.getElementById("signupForm");
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+    let confirmPassword = document.getElementById("confirmPassword").value;
+
+    let valid = true;
+
+    // Clear previous errors
+    document.getElementById("emailError").innerText = "";
+    document.getElementById("passwordError").innerText = "";
+    document.getElementById("confirmError").innerText = "";
+    document.getElementById("successMsg").innerText = "";
+
+    // Email validation
+    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    if (!email.match(emailPattern)) {
+      document.getElementById("emailError").innerText = "Invalid email format";
+      valid = false;
+    }
+
+    // Password validation
+    let passwordPattern = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
+    if (!password.match(passwordPattern)) {
+      document.getElementById("passwordError").innerText =
+        "Password must be 8+ chars, include uppercase & number";
+      valid = false;
+    }
+
+    // Confirm password
+    if (password !== confirmPassword) {
+      document.getElementById("confirmError").innerText =
+        "Passwords do not match";
+      valid = false;
+    }
+
+    // Success
+    if (valid) {
+      document.getElementById("successMsg").innerText =
+        "Signup Successful 🎉";
+      form.reset();
+    }
+  });
+</script>
+
+</body>
+</html>
