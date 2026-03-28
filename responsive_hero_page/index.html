@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Responsive Hero Page</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #667eea, #764ba2);
+    color: white;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 10%;
+    min-height: 100vh;
+}
+
+/* Left Content */
+.hero-text {
+    flex: 1;
+}
+
+.hero-text h1 {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background: white;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #ddd;
+}
+
+/* Right Image */
+.hero img {
+    flex: 1;
+    max-width: 400px;
+    border-radius: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero img {
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    .hero-text h1 {
+        font-size: 32px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+
+    <!-- Left Content -->
+    <div class="hero-text">
+        <h1>Hi, I'm Arpitha 👋</h1>
+        <p>A passionate Computer Science student exploring Web Development and Machine Learning.</p>
+        <a href="#" class="btn">Get Started</a>
+    </div>
+
+    <!-- Right Image -->
+    <img src="arpitha.jpg" alt="Hero Image">
+
+</section>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Client-Server Architecture</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f6f9;
+        text-align: center;
+        padding: 40px;
+    }
+
+    h1 {
+        margin-bottom: 40px;
+        color: #333;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+    }
+
+    .box {
+        width: 200px;
+        padding: 20px;
+        border-radius: 12px;
+        color: white;
+        font-weight: bold;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .client {
+        background: linear-gradient(135deg, #4facfe, #00f2fe);
+    }
+
+    .internet {
+        background: linear-gradient(135deg, #43e97b, #38f9d7);
+    }
+
+    .server {
+        background: linear-gradient(135deg, #fa709a, #fee140);
+        color: #333;
+    }
+
+    .arrow {
+        font-size: 30px;
+        color: #555;
+    }
+
+    .flow {
+        margin-top: 50px;
+        font-size: 18px;
+        color: #444;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>🌐 Client-Server Architecture</h1>
+
+<div class="container">
+    <div class="box client">
+        💻 CLIENT<br><br>
+        Browser<br>
+        (Chrome, Edge)
+    </div>
+
+    <div class="arrow">➡️</div>
+
+    <div class="box internet">
+        🌍 INTERNET<br><br>
+        HTTP / HTTPS
+    </div>
+
+    <div class="arrow">➡️</div>
+
+    <div class="box server">
+        🖥️ SERVER<br><br>
+        Database + Backend
+    </div>
+</div>
+
+<div class="flow">
+    <p>📤 Client sends Request → 🌍 Internet → 🖥️ Server</p>
+    <p>📥 Server sends Response → 🌍 Internet → 💻 Client</p>
+</div>
+
+</body>
+</html>

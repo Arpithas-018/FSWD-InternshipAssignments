@@ -1,0 +1,35 @@
+Assignment Name: Internet Explorer
+
+Client-Server Architecture 
+Client-server architecture is a model where:
+
+Client → The user’s device (browser like Chrome, Edge)
+Server → A powerful computer that stores websites and data
+
+The client sends a request, and the server responds with the required data.
+
+
+What Happens When You Open a Website
+
+Step-by-step process:
+1)Enter URL
+       You type a website (e.g., www.google.com
+) in the browser
+2)DNS Lookup
+        The browser finds the IP address of the website
+3)Request Sent
+        Your browser sends an HTTP request to the server
+4)Server Processing
+        Server receives the request and processes it
+5)Response Sent
+        Server sends back files (HTML, CSS, JavaScript)
+6)Rendering
+        Browser displays the webpage on your screen
+
+
+
+Flow Summary
+
+User → Browser → Internet → Server
+Server → Internet → Browser → Webpage Display
+

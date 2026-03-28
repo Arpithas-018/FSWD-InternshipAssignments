@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Validation Form</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .form-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        h2 { text-align: center; color: #333; }
+        .input-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            outline: none;
+        }
+        .error-msg { color: #ff4d4d; font-size: 14px; display: none; margin-top: 5px; }
+        .success-msg { 
+            background: #d4edda; color: #155724; 
+            padding: 10px; border-radius: 6px; 
+            text-align: center; display: none; margin-bottom: 15px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        button:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+
+<div class="form-card">
+    <div id="successBanner" class="success-msg">✅ Form Submitted Successfully!</div>
+    <h2>Contact Us</h2>
+    
+    <div class="input-group">
+        <label>Name</label>
+        <input type="text" id="username" placeholder="Enter your name">
+        <div id="nameError" class="error-msg">Name is required (min 3 chars)</div>
+    </div>
+
+    <div class="input-group">
+        <label>Email</label>
+        <input type="email" id="email" placeholder="email@example.com">
+        <div id="emailError" class="error-msg">Please enter a valid email</div>
+    </div>
+
+    <button onclick="validateForm()">Submit</button>
+</div>
+
+<script>
+    function validateForm() {
+        // Get values
+        const name = document.getElementById('username').value;
+        const email = document.getElementById('email').value;
+        const successBanner = document.getElementById('successBanner');
+        
+        // Error elements
+        const nameError = document.getElementById('nameError');
+        const emailError = document.getElementById('emailError');
+
+        let isValid = true;
+
+        // Name Validation
+        if (name.length < 3) {
+            nameError.style.display = 'block';
+            isValid = false;
+        } else {
+            nameError.style.display = 'none';
+        }
+
+        // Simple Email Validation
+        if (!email.includes('@') || !email.includes('.')) {
+            emailError.style.display = 'block';
+            isValid = false;
+        } else {
+            emailError.style.display = 'none';
+        }
+
+        // Final Result
+        if (isValid) {
+            successBanner.style.display = 'block';
+            console.log("Form Data:", { name, email });
+            // Optional: Clear form
+            document.getElementById('username').value = "";
+            document.getElementById('email').value = "";
+        } else {
+            successBanner.style.display = 'none';
+        }
+    }
+</script>
+
+</body>
+</html>
